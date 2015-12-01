@@ -1,5 +1,5 @@
 /*!
- *  DM Accordion 0.0.1
+ *  DM Accordion 0.2.0
  *  @author Дмитрий Альшин <dm.alshin@gmail.com>
  */
 
@@ -10,15 +10,12 @@
 /*--- Events ---*/
 
 $(document)
-    .on('click', '.dm-accordion .dm-accordion-control', function() {
-        var $this = $(this);
-        var allContents = $('.dm-accordion .dm-accordion-content');
-        allContents.removeClass('dm-accordion-active-contnent');
-        var activeContent = $this.next('.dm-accordion-content');
-        activeContent.addClass('dm-accordion-active-contnent')
-        $('.dm-accordion .dm-accordion-content').css('max-height', '0');
-        activeContent.css('max-height', '1000px');
-    });
+	.on('click', '.dm-accordion .dm-accordion-control', function() {
+		$(this)
+			.addClass('.dm-accordion-content-active')
+        	.next('.dm-accordion-content')
+        	.slideToggle(200);
+	});
 
 
 /*--- Initializations ---*/

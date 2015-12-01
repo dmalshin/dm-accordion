@@ -1,5 +1,5 @@
 /*!
- *  DM Accordion 0.0.1
+ *  DM Accordion 0.2.0
  *  @author Дмитрий Альшин <dm.alshin@gmail.com>
  */
 
@@ -12,8 +12,6 @@
 	}
 
 	.dm-accordion-content {
-		display: block;
-		max-height: 0;
+		display: none;
 		overflow: hidden;
-		transition: all .5s ease;
 	}
