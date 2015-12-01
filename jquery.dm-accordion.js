@@ -1,6 +1,8 @@
-/*!
- *  DM Accordion 0.2.0
- *  @author Дмитрий Альшин <dm.alshin@gmail.com>
+/**
+ * DM Accordion
+ * @version 0.2.1
+ * @author Dmitry Alshin <dm.alshin@gmail.com>
+ * @license The MIT License (MIT)
  */
 
 
