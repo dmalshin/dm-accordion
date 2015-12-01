@@ -1,0 +1,19 @@
+/*!
+ *  DM Accordion 0.0.1
+ *  @author Дмитрий Альшин <dm.alshin@gmail.com>
+ */
+
+/* ==========================================================================
+	GENERAL CLASSES */
+/* ========================================================================== */
+
+	.dm-accordion-control {
+		cursor: pointer;
+	}
+
+	.dm-accordion-content {
+		display: block;
+		max-height: 0;
+		overflow: hidden;
+		transition: all .5s ease;
+	}
