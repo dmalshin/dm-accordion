@@ -1,0 +1,30 @@
+/*!
+ *  DM Accordion 0.0.1
+ *  @author Дмитрий Альшин <dm.alshin@gmail.com>
+ */
+
+/* ==========================================================================
+	GENERAL CLASSES */
+/* ========================================================================== */
+
+	.dm-accordion-control {
+		cursor: pointer;
+	}
+
+	.dm-accordion-content {
+		display: block;
+		max-height: 0;
+		overflow: hidden;
+		transition: all .5s ease;
+	}
+
+/* ==========================================================================
+	DEFAULT THEME */
+/* ========================================================================== */
+
+	.dm-accordion-control {
+		border-bottom: 1px solid #aaa;
+		margin-bottom: 10px;
+		margin-top: 20px;
+		padding-bottom: 2px;
+	}
