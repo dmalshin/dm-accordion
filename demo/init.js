@@ -1,5 +1,8 @@
 /*--- Initializations ---*/
 
 $(document).ready(function() {
-	dmAccordionInit('.accordion', '.accordion-control', '.accordion-content');
+	$('.accordion').DMAccordion({
+		control: '.accordion-control',
+		content: '.accordion-content',
+	});
 }); // ready()
