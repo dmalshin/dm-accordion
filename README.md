@@ -1,6 +1,6 @@
 # DM Accordion
 
-![version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg?style=flat-square "Version")
+![version](https://img.shields.io/badge/version-1.0.1-brightgreen.svg?style=flat-square "Version")
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)
 
 Accordion script mostly for educational purposes
@@ -49,9 +49,10 @@ Initialize accordion script with optional parameters:
 ```javascript
 $(document).ready(function(){
 	$('.accordion-class').DMAccordion({
-		container: '.accordion-container',	// Overall items container
 		control: '.accordion-control',		// Accordion control(heading) elements
 		content: '.accordion-content',		// Accordion content elements
+		speed: 200,							// Opening/closing speed
+		openSinge: false,					// Only one item can be opened at the time
 	});
 });
 ```
