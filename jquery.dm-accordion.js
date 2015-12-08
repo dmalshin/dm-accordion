@@ -1,12 +1,12 @@
 /**
  * DM Accordion
- * @version 1.0.1
+ * @version 1.0.2
  * @author Dmitry Alshin <dm.alshin@gmail.com>
  * @license The MIT License (MIT)
  */
 
 
-(function() {
+;(function($, window, document, undefined) {
 
 	/**
 	 * Creates an accordion.
@@ -16,10 +16,6 @@
 	 * @param {Object} [options] - The options
 	 */
 	function DMAccordion(element, options) {
-		// ensure to use the `new` operator
-		if (!(this instanceof DMAccordion))
-			return new DMAccordion(options);
-
 
 		/**
 		 * Current options set by the caller including defaults
@@ -48,10 +44,11 @@
 	DMAccordion.prototype.initialize = function(element) {
 
 		// Variables
-		var optionControlElement = this.options.control;
-		var optionContentElement = this.options.content;
-		var optionSpeed = this.options.optionSpeed;
-		var optionOpenSinge = this.options.openSinge;
+		var optionContenElement 	= element.selector;
+		var optionControlElement 	= optionContenElement + ' ' + this.options.control;
+		var optionContentElement 	= optionContenElement + ' ' + this.options.content;
+		var optionSpeed 			= this.options.speed;
+		var optionOpenSinge 		= this.options.openSinge;
 
 		// Classes for styles
 		element
@@ -92,4 +89,4 @@
 
 	window.DMAccordion = DMAccordion;
 
-})();
+})(window.jQuery, window, document);
