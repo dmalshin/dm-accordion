@@ -1,10 +1,9 @@
 # DM Accordion
 
-![version](https://img.shields.io/badge/version-1.0.3-brightgreen.svg?style=flat-square "Version")
+![version](https://img.shields.io/badge/version-2.0.0-brightgreen.svg?style=flat-square "Version")
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)
 
-Accordion script mostly for educational purposes
-
+Simple but powerful jquery accordion script
 
 ## Installation
 
@@ -14,7 +13,7 @@ Include core css file and optional theme
 <link rel="stylesheet" href="dm-accordion-theme.css" />
 ```
 
-Include accordion script and jQuery (if not done already)
+Include accordion script and jQuery (if not included already)
 ```html
 <script src="jquery.min.js"></script>
 <script src="jquery.dm-accordion.js"></script>
@@ -23,15 +22,11 @@ Include accordion script and jQuery (if not done already)
 
 ## Initialization
 
-Initialize accordion script for your accordion container class with optional parameters:
+Call accordion function with optional parameters:
 
 ```javascript
-$(document).ready(function(){
-	$('.accordion-container').DMAccordion({
-		control: '.accordion-control',		// Accordion control(heading) elements
-		content: '.accordion-content',		// Accordion content elements
-		speed: 200,							// Opening/closing speed
-		openSinge: false,					// Only one item can be opened at the time
-	});
+dmAccordion({
+  headings: '.some-heading',    // Accordion heading elements
+  contents: '.some-content'     // Accordion content elements
 });
 ```

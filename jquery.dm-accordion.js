@@ -1,92 +1,35 @@
-/**
- * DM Accordion
- * @version 1.0.3
- * @author Dmitry Alshin <dm.alshin@gmail.com>
- * @license The MIT License (MIT)
- */
-
-
-;(function($, window, document, undefined) {
-
-	/**
-	 * Creates an accordion.
-	 * @class DM Accordion.
-	 * @public
-	 * @param {HTMLElement|jQuery} element - The element to create the carousel for.
-	 * @param {Object} [options] - The options
-	 */
-	function DMAccordion(element, options) {
-
-		/**
-		 * Current options set by the caller including defaults
-		 * @public
-		 */
-		this.options = $.extend({}, DMAccordion.Defaults, options);
-
-		this.initialize(element);
+function dmAccordion(userOptions) {
+	// options
+	var options = {
+		// user options
+		headings: '.dm-accordion-heading',
+		contents: '.dm-accordion-content',
+		speed: 400,
+		// internal options
+		headingClass: 'dm-accordion-heading',
+		contentClass: 'dm-accordion-content',
+		separatorHTML: '<div class="dm-accordion-separator"></div>'
 	};
+	$.extend(options, userOptions);
 
-	/**
-	 * Default options for the accordion
-	 * @public
-	 */
-	DMAccordion.Defaults = {
-		control: '.accordion-control',
-		content: '.accordion-content',
-		openSinge: false,
-		optionSpeed: 200,
-	};
+	// initialization
+	var $headings = $(options.headings);
+	var $contents = $(options.contents);
 
-	/**
-	 * Initializes the accordion
-	 * @protected
-	 */
-	DMAccordion.prototype.initialize = function(element) {
+	$headings.addClass(options.headingClass);
 
-		// Variables
-		var optionContenElement 	= element.selector;
-		var optionControlElement 	= optionContenElement + ' ' + this.options.control;
-		var optionContentElement 	= optionContenElement + ' ' + this.options.content;
-		var optionSpeed 			= this.options.speed;
-		var optionOpenSinge 		= this.options.openSinge;
+	$contents
+			.hide()
+			.addClass(options.contentClass)
+			.after(options.separatorHTML);
 
-		// Classes for styles
-		element
-			.addClass('dm-accordion');
-		$(optionControlElement)
-			.addClass('dm-accordion-control');
-		$(optionContentElement)
-			.addClass('dm-accordion-content');
+	// functions
+	function slide(event) {
+		$(event.target).next($contents).slideToggle(options.speed);
+	}
 
-		// Events registration
-		if ( optionOpenSinge ) {
-			$(document)
-			.on('click', optionControlElement, function() {
-				$(optionContentElement).slideUp(optionSpeed);
-
-				$(this)
-					.next(optionContentElement)
-					.slideDown( optionSpeed );
-			});
-		}
-		else {
-			$(document)
-			.on('click', optionControlElement, function() {
-				$(this)
-					.next(optionContentElement)
-					.slideToggle( optionSpeed );
-			});
-		}
-	};
-
-	/**
-	 * The jQuery Plugin for DM Accordion
-	 * @public
-	 */
-	$.prototype.DMAccordion = function (option) {
-		var data = new DMAccordion(this, typeof option == 'object' && option);
-	};
-
-	window.DMAccordion = DMAccordion;
-
-})(window.jQuery, window, document);
+	// events
+	$headings.on('click', function() {
+		slide(event);
+	});
+}

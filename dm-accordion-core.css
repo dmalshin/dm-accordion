@@ -1,12 +1,25 @@
-/* ==========================================================================
-	GENERAL CLASSES */
-/* ========================================================================== */
+/**
+ * DM Accordion v2.0.0
+ * Accordion core styles
+ */
 
-	.dm-accordion-control {
-		cursor: pointer;
-	}
+.dm-accordion-heading {
+  cursor: pointer;
+}
 
-	.dm-accordion-content {
-		display: none;
-		overflow: hidden;
-	}
+.dm-accordion-content {
+  overflow: hidden;
+}
+
+.dm-accordion-content *:first-child {
+  margin-top: 0;
+}
+
+.dm-accordion-content *:last-child {
+  margin-bottom: 0;
+}
+
+.dm-accordion-separator {
+  height: 1px;
+}
+
