@@ -38,4 +38,4 @@ dmAccordion({
   openFirst: false, // First section is opened initially
   speed: '300', // Opening/closing speed
 });
-
+```
