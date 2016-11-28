@@ -1,35 +1,64 @@
 function dmAccordion(userOptions) {
+	var $headings;
+	var $contents;
 	// options
 	var options = {
 		// user options
 		headings: '.dm-accordion-heading',
 		contents: '.dm-accordion-content',
-		speed: 400,
+		openSingle: false,
+		openFirst: false,
+		speed: 300,
 		// internal options
 		headingClass: 'dm-accordion-heading',
 		contentClass: 'dm-accordion-content',
-		separatorHTML: '<div class="dm-accordion-separator"></div>'
+		separatorHTML: '<div class="dm-accordion-separator"></div>',
+		openedClass: 'dm-accordion-opened',
+		closedClass: 'dm-accordion-closed',
 	};
 	$.extend(options, userOptions);
 
+	// init accordion
+	dmAccordionInit();
+
 	// initialization
-	var $headings = $(options.headings);
-	var $contents = $(options.contents);
+	function dmAccordionInit() {
+		$headings = $(options.headings);
+		$contents = $(options.contents);
 
-	$headings.addClass(options.headingClass);
+		$headings.addClass(options.headingClass);
+		$contents
+				.addClass(options.contentClass)
+				.after(options.separatorHTML);
 
-	$contents
-			.hide()
-			.addClass(options.contentClass)
-			.after(options.separatorHTML);
+		if (options.openFirst) {
+			$contents.not(':first').hide();
+			$headings.not(':first').addClass(options.closedClass);
+			$headings.first().addClass(options.openedClass);
+		}
+		else {
+			$contents.hide();
+			$headings.addClass(options.closedClass);
+		}
+	}
 
-	// functions
-	function slide(event) {
-		$(event.target).next($contents).slideToggle(options.speed);
+	// toggle accordion section
+	function dmAccordionSlide(event) {
+		var $targetHeading = $(event.target);
+		var $targetContent = $targetHeading.next();
+
+		if (options.openSingle) {
+			$contents.not($targetContent)
+				.slideUp(options.speed)
+				.prev().addClass(options.closedClass);
+		}
+
+		$targetContent.slideToggle(options.speed);
+		$targetHeading.toggleClass(options.openedClass + ' ' + options.closedClass);
 	}
 
 	// events
 	$headings.on('click', function() {
-		slide(event);
+		dmAccordionSlide(event);
 	});
 }
