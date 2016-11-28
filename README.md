@@ -1,6 +1,6 @@
 # DM Accordion
 
-![version](https://img.shields.io/badge/version-2.0.0-brightgreen.svg?style=flat-square "Version")
+![version](https://img.shields.io/badge/version-2.1.0-brightgreen.svg?style=flat-square "Version")
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)
 
 Simple but powerful jquery accordion script
@@ -30,7 +30,7 @@ dmAccordion({
 });
 ```
 
-Use rewrite default parameters to customize an accordion:
+Use rewrite default parame`ters to customize an accordion:
 dmAccordion({
   headings: '.dm-accordion-heading', // Accordion heading elements
   contents: '.dm-accordion-content', // Accordion content elements
